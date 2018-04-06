@@ -116,8 +116,8 @@ void Submap2D::ToResponseProto(
       const int delta =
           128 - ProbabilityToLogOddsInteger(
                     probability_grid_.GetProbability(xy_index + offset));
-      const uint8 alpha = delta > 0 ? 0 : -delta;
-      const uint8 value = delta > 0 ? delta : 0;
+      const uint8 alpha = delta > 0 ? 0 : 255;
+      const uint8 value = delta > 0 ? 255 : 0;
       cells.push_back(value);
       cells.push_back((value || alpha) ? alpha : 1);
     } else {
